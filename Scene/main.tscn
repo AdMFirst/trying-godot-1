@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://caywnvjrurwfd"]
+[gd_scene load_steps=4 format=3 uid="uid://caywnvjrurwfd"]
 
 [ext_resource type="Script" path="res://script/main.gd" id="1_wx5wt"]
 [ext_resource type="Texture2D" uid="uid://y0setisw2d8b" path="res://icon.svg" id="2_0big2"]
+[ext_resource type="PackedScene" uid="uid://d08sttklstnwp" path="res://Scene/bg.tscn" id="3_usxk3"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_wx5wt")
@@ -24,6 +25,8 @@ text = "Quit"
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(1076, 567)
 texture = ExtResource("2_0big2")
+
+[node name="BG" parent="Icon" instance=ExtResource("3_usxk3")]
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

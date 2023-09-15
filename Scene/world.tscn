@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ds07e055dc2ch"]
+[gd_scene load_steps=6 format=3 uid="uid://ds07e055dc2ch"]
 
 [ext_resource type="PackedScene" uid="uid://sg3cqh502aic" path="res://Player/player.tscn" id="1_klyhf"]
+[ext_resource type="Script" path="res://script/BG.gd" id="1_nyjvc"]
+[ext_resource type="Texture2D" uid="uid://c8upb57lhqupo" path="res://Assets/Sunny-land-assets-files/PNG/environment/layers/back.png" id="2_1pv4t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l6e0i"]
 size = Vector2(1097, 39)
@@ -10,10 +12,22 @@ size = Vector2(19.5, 386)
 
 [node name="World" type="Node2D"]
 
+[node name="BG" type="ParallaxBackground" parent="."]
+script = ExtResource("1_nyjvc")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BG"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Back" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(576, 324)
+scale = Vector2(3, 2.7)
+texture = ExtResource("2_1pv4t")
+
 [node name="Player" parent="." instance=ExtResource("1_klyhf")]
 position = Vector2(234, 180)
 
 [node name="floor" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
 position = Vector2(580.5, 547.5)
