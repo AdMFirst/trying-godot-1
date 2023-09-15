@@ -1,9 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://caywnvjrurwfd"]
+[gd_scene load_steps=3 format=3 uid="uid://caywnvjrurwfd"]
 
-[ext_resource type="Script" path="res://script/main.gd" id="1_ol8qa"]
+[ext_resource type="Script" path="res://script/main.gd" id="1_wx5wt"]
+[ext_resource type="Texture2D" uid="uid://y0setisw2d8b" path="res://icon.svg" id="2_0big2"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_ol8qa")
+script = ExtResource("1_wx5wt")
 
 [node name="Play" type="Button" parent="."]
 offset_left = 402.0
@@ -19,6 +20,10 @@ offset_right = 665.0
 offset_bottom = 429.0
 tooltip_text = "This is a quit button"
 text = "Quit"
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(86, 85)
+texture = ExtResource("2_0big2")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
