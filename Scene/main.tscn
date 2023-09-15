@@ -7,22 +7,22 @@
 script = ExtResource("1_wx5wt")
 
 [node name="Play" type="Button" parent="."]
-offset_left = 402.0
-offset_top = 169.0
-offset_right = 648.0
-offset_bottom = 277.0
+offset_left = 23.0
+offset_top = 420.0
+offset_right = 373.0
+offset_bottom = 520.0
 text = "play"
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 399.0
-offset_top = 314.0
-offset_right = 665.0
-offset_bottom = 429.0
+offset_left = 25.0
+offset_top = 530.0
+offset_right = 375.0
+offset_bottom = 630.0
 tooltip_text = "This is a quit button"
 text = "Quit"
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(86, 85)
+position = Vector2(1076, 567)
 texture = ExtResource("2_0big2")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

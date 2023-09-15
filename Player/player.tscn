@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://dn3jug2jrimy1" path="res://Assets/Sunny-land-assets-files/PNG/sprites/player/run/player-run-6.png" id="14_l02bf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_27et8"]
+radius = 8.0
+height = 24.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rg08p"]
 animations = [{
@@ -29,6 +31,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_yjwf6")
+}],
+"loop": true,
+"name": &"fall",
 "speed": 5.0
 }, {
 "frames": [{
@@ -51,9 +61,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("7_2byjc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_yjwf6")
 }],
 "loop": true,
 "name": &"jump",
@@ -87,8 +94,13 @@ animations = [{
 script = ExtResource("1_13r64")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4)
 shape = SubResource("CapsuleShape2D_27et8")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rg08p")
-animation = &"death"
+animation = &"fall"
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
