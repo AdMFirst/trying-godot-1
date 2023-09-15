@@ -16,9 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://c6icqgiud0jvd" path="res://Assets/Sunny-land-assets-files/PNG/sprites/player/run/player-run-5.png" id="13_4f66a"]
 [ext_resource type="Texture2D" uid="uid://dn3jug2jrimy1" path="res://Assets/Sunny-land-assets-files/PNG/sprites/player/run/player-run-6.png" id="14_l02bf"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_27et8"]
-radius = 8.0
-height = 24.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gj5ga"]
+size = Vector2(13, 21.5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rg08p"]
 animations = [{
@@ -94,13 +93,14 @@ animations = [{
 script = ExtResource("1_13r64")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 4)
-shape = SubResource("CapsuleShape2D_27et8")
+position = Vector2(0, 4.25)
+shape = SubResource("RectangleShape2D_gj5ga")
 
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rg08p")
-animation = &"fall"
+animation = &"idle"
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+limit_left = 0
