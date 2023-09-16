@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ds07e055dc2ch"]
+[gd_scene load_steps=11 format=3 uid="uid://ds07e055dc2ch"]
 
 [ext_resource type="Texture2D" uid="uid://cptoxl0efba08" path="res://Assets/sunny-land/assets/environment/tileset.png" id="1_2lmma"]
 [ext_resource type="PackedScene" uid="uid://sg3cqh502aic" path="res://Player/player.tscn" id="1_klyhf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://njoty3typbjp" path="res://Player/enemy.tscn" id="5_5pyco"]
 [ext_resource type="Script" path="res://script/HPLabel.gd" id="6_xihgw"]
 [ext_resource type="Script" path="res://script/GoldLabel.gd" id="7_2kpy0"]
+[ext_resource type="Script" path="res://script/Collectibles.gd" id="8_u1rlw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w3myw"]
 texture = ExtResource("1_2lmma")
@@ -491,3 +492,12 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 34
 text = "Coin: 10"
 script = ExtResource("7_2kpy0")
+
+[node name="Collectibles" type="Node2D" parent="."]
+script = ExtResource("8_u1rlw")
+
+[node name="Timer" type="Timer" parent="Collectibles"]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Collectibles/Timer" to="Collectibles" method="_on_timer_timeout"]
